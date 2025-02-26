@@ -1,4 +1,4 @@
-from flask import Flask, jsonify  
+from flask import Flask, jsonify, render_template
 from data_fetcher import fetch_data  
 from risk_assessor import aggregate_findings  
 
@@ -25,6 +25,9 @@ def scan():
         # Handle exceptions and return an error response
         return jsonify({"status": "error", "message": str(e)}), 500
 
+@app.route('/', methods=['GET'])
+def dashboard():
+    return render_template('dashboard.html')
+
 if __name__ == '__main__':
-    # Run the Flask app on localhost with debugging enabled for development
     app.run(debug=True, port=5000)

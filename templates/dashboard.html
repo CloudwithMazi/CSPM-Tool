@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSPM Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .finding { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+        .Critical { background-color: #f8d7da; }
+        .High { background-color: #fff3cd; }
+        .Medium { background-color: #d1ecf1; }
+    </style>
+</head>
+<body>
+    <h1>Cloud Security Posture Management Dashboard</h1>
+    <button onclick="runScan()">Run Scan</button>
+    <div id="results"></div>
+
+    <script>
+        async function runScan() {
+            // Call the API endpoint
+            const response = await fetch('/api/scan');
+            const data = await response.json();
+            
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ''; // Clear previous results
+
+            if (data.status === "success") {
+                data.findings.forEach(finding => {
+                    // Create a div for each finding and add class based on severity
+                    const div = document.createElement('div');
+                    div.classList.add('finding', finding.severity);
+                    div.innerHTML = `<strong>Resource:</strong> ${finding.resource}<br>
+                                     <strong>Issue:</strong> ${finding.issue}<br>
+                                     <strong>Severity:</strong> ${finding.severity}`;
+                    resultsDiv.appendChild(div);
+                });
+            } else {
+                resultsDiv.innerHTML = `<p>Error: ${data.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
