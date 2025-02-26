@@ -1,0 +1,105 @@
+{
+    "iam_roles": [
+      {
+        "role_name": "EnterpriseAdmin",
+        "policies": ["FullAccess", "BillingAccess", "CloudTrailFullAccess"],
+        "created_date": "2022-11-01T09:00:00Z",
+        "attached_entities": ["User: john.doe", "Group: Admins"]
+      },
+      {
+        "role_name": "DataScientist",
+        "policies": ["ReadOnlyAccess", "S3ReadAccess", "AthenaQueryAccess"],
+        "created_date": "2023-05-15T11:30:00Z",
+        "attached_entities": ["User: jane.smith"]
+      }
+    ],
+    "s3_buckets": [
+      {
+        "bucket_name": "enterprise-logs",
+        "public_access": false,
+        "encryption": true,
+        "created_date": "2021-10-05T14:45:00Z",
+        "lifecycle_policy": "archive after 90 days"
+      },
+      {
+        "bucket_name": "marketing-assets",
+        "public_access": true,
+        "encryption": false,
+        "created_date": "2023-01-20T08:00:00Z",
+        "lifecycle_policy": "none"
+      },
+      {
+        "bucket_name": "hr-documents",
+        "public_access": false,
+        "encryption": true,
+        "created_date": "2022-03-12T16:30:00Z",
+        "lifecycle_policy": "delete after 365 days"
+      }
+    ],
+    "ec2_instances": [
+      {
+        "instance_id": "i-0abcdef1234567890",
+        "instance_type": "t3.large",
+        "security_groups": ["sg-0a1b2c3d4e5f6g7h8"],
+        "public_ip": "52.14.123.45",
+        "private_ip": "10.0.1.15",
+        "launch_time": "2023-06-10T10:00:00Z",
+        "state": "running"
+      },
+      {
+        "instance_id": "i-0fedcba9876543210",
+        "instance_type": "m5.xlarge",
+        "security_groups": ["sg-0a1b2c3d4e5f6g7h8", "sg-1234567890abcdef0"],
+        "public_ip": null,
+        "private_ip": "10.0.2.20",
+        "launch_time": "2023-04-25T15:00:00Z",
+        "state": "stopped"
+      }
+    ],
+    "security_groups": [
+      {
+        "group_id": "sg-0a1b2c3d4e5f6g7h8",
+        "group_name": "WebServersSG",
+        "description": "Security group for web servers allowing HTTP/HTTPS",
+        "inbound_rules": [
+          {
+            "protocol": "TCP",
+            "port_range": "80",
+            "cidr": "0.0.0.0/0"
+          },
+          {
+            "protocol": "TCP",
+            "port_range": "443",
+            "cidr": "0.0.0.0/0"
+          }
+        ],
+        "outbound_rules": [
+          {
+            "protocol": "TCP",
+            "port_range": "all",
+            "cidr": "0.0.0.0/0"
+          }
+        ]
+      },
+      {
+        "group_id": "sg-1234567890abcdef0",
+        "group_name": "AdminAccessSG",
+        "description": "Security group for admin access with restricted IP",
+        "inbound_rules": [
+          {
+            "protocol": "TCP",
+            "port_range": "22",
+            "cidr": "203.0.113.0/24"
+          }
+        ],
+        "outbound_rules": [
+          {
+            "protocol": "TCP",
+            "port_range": "all",
+            "cidr": "0.0.0.0/0"
+          }
+        ]
+      }
+    ]
+  }
+  
