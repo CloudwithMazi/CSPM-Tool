@@ -22,9 +22,7 @@ The tool includes a Flask-based API to trigger scans and return risk findings, a
 - [Usage](#usage)
   - [Running the API](#running-the-api)
   - [Viewing the Dashboard](#viewing-the-dashboard)
-- [Deep Dive: API & Dashboard Integration](#deep-dive-api--dashboard-integration)
-- [Future Enhancements](#future-enhancements)
-- [License](#license)
+- [Screenshots](#screenshots)
 
 ## Project Structure
 
@@ -172,30 +170,10 @@ We provide two options for the dashboard:
 </body>
 </html>
 ```
+# Screenshots 
+![Screenshot 2025-02-26 at 6 21 24 PM](https://github.com/user-attachments/assets/5cc4e78a-e405-4a62-9a07-018880aedcaa)
 
-### Recommendations for Production
+![Screenshot 2025-02-26 at 6 28 54 PM](https://github.com/user-attachments/assets/9a152e72-ac3f-4fc2-978e-b2270afc5ffc)
+ 
 
-- **API Security:**  
-  Use proper authentication (OAuth2, API keys) and serve over HTTPS.
 
-- **Frontend Enhancements:**  
-  For a production-level dashboard, consider using React or Vue.js along with UI libraries like Material-UI for improved design and usability.
-
-- **Asynchronous Processing:**  
-  For longer scans, consider offloading processing with background job queues (e.g., Celery) or AWS Lambda functions, ensuring your API remains responsive.
-
-## Future Enhancements
-
-- **Live Data Integration:** Transition from sample data to live AWS configuration data.
-- **Automated Remediation:** Develop auto-remediation workflows for detected misconfigurations.
-- **Multi-Cloud Support:** Extend the tool to assess resources on other cloud providers like Azure and GCP.
-- **Advanced Reporting:** Integrate comprehensive reporting that maps findings to compliance frameworks like CIS and NIST.
-- **Containerization & CI/CD:** Dockerize the application and set up CI/CD pipelines to automate testing and deployment.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-This narrative-driven README not only explains the technical details of the CSPM tool but also shares the journey and learning experience that inspired its creation. I hope this teaching approach makes it easier for you and your mentees to follow along and build a robust cloud security project. Enjoy coding and learning!
