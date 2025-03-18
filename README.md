@@ -1,6 +1,11 @@
 # Cloud Security Posture Management (CSPM) Tool
 
-So last night, one of my mentees approached me with a question: *"How can I build a project that not only teaches me cloud security but also gives me real hands-on experience with assessing cloud environments?"* They were eager to understand how to evaluate cloud resources against industry standards and secure them against misconfigurations. After discussing various ideas, I decided on creating a Cloud Security Posture Management (CSPM) tool. This project would teach them the fundamentals of AWS configuration, risk assessment, and how to build an API and dashboard for real-time security monitoring.
+So last night, one of my mentees approached me with a question: *"How can I build a project that not only teaches me cloud security but also gives me real hands-on experience with assessing cloud environments?"* 
+
+## Who is this for? 
+- **Anyone interested in cloud security and hands-on experience.**
+- **Security Professionals:** This tool can be used to practice and refine your skills in cloud security assessment.
+- **Students and Beginners:** This project is a great way to learn about cloud security and gain practical experience.
 
 ## Project Overview
 
@@ -56,11 +61,13 @@ cspm-tool/
 
    ```bash
    python3 -m venv venv
-   source venv/bin/activate    # On Windows: venv\Scripts\activate
+   source venv/bin/activate   
    pip install -r requirements.txt
    ```
 
 3. **Upload Sample Data:**
+
+I have created sample data that you can use. This will simulate an enterprise-like AWS environment utilizing different resources. 
 
    - Create an S3 bucket (e.g., `enterprise-cspm-sample`).
    - Upload your sample JSON file (e.g., `sample_data.json`) that contains enterprise-like AWS configurations.
