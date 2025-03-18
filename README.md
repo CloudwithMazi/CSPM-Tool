@@ -48,7 +48,7 @@ cspm-tool/
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/cspm-tool.git
+   git clone https://github.com/CloudwithMazi/cspm-tool.git
    cd cspm-tool
    ```
 
